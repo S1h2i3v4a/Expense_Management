@@ -20,9 +20,11 @@ app.use(cors());
 
 //routes
 app.use("/api/v1/users", require("./routes/userRoute"));
+app.use("/api/v1/transections", require("./routes/transectionRoutes"));
 
 //port
-const PORT = 8080 || process.env.PORT;
+// Use environment PORT if provided, otherwise fall back to 5000
+const PORT = process.env.PORT || 5000;
 
 //listen server
 app.listen(PORT, () => {
