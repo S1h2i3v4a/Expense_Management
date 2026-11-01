@@ -21,6 +21,18 @@ app.use(express.json());
 app.use(cors({ origin: "*", credentials: true }));
 
 // Health check & Keep-alive endpoint (Keeps Render awake + keeps MongoDB Atlas active)
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "Expense Management API is running!",
+    status: "healthy",
+    endpoints: {
+      health: "/health",
+      users: "/api/v1/users",
+      transections: "/api/v1/transections",
+    },
+  });
+});
+
 app.get("/health", async (req, res) => {
   try {
     let dbStatus = "disconnected";
