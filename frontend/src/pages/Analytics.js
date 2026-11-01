@@ -35,7 +35,7 @@ const { Option } = Select;
 function Analytics({ transactions: propTransactions = null }) {
   // fetchedTransactions: transactions loaded by this component when prop not provided
   const [fetchedTransactions, setFetchedTransactions] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [chartType, setChartType] = useState("bar");
   const [timeRange, setTimeRange] = useState("monthly");

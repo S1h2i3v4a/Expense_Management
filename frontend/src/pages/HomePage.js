@@ -19,20 +19,6 @@ import { TableOutlined, AreaChartOutlined } from "@ant-design/icons";
 // Configure axios defaults
 // axios.defaults.baseURL is configured globally in src/index.js
 
-// Add styles for view transitions
-const styles = {
-  viewSwitch: {
-    transition: "all 0.3s ease",
-    "&:hover": {
-      transform: "scale(1.1)",
-    },
-  },
-  analyticsContainer: {
-    opacity: 1,
-    transition: "opacity 0.3s ease-in-out",
-  },
-};
-
 const { Option } = Select;
 
 const HomePage = () => {
