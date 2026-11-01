@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const colors = require("colors");
 
+mongoose.set("strictQuery", false);
+
 const connectDb = async () => {
   try {
     const mongoURI = process.env.MONGO_URL || process.env.MONGODB_URI;
