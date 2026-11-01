@@ -17,7 +17,7 @@ import Analytics from "./Analytics";
 import { TableOutlined, AreaChartOutlined } from "@ant-design/icons";
 
 // Configure axios defaults
-axios.defaults.baseURL = "http://localhost:8080";
+// axios.defaults.baseURL is configured globally in src/index.js
 
 // Add styles for view transitions
 const styles = {

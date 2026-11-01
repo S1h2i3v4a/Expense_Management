@@ -5,6 +5,11 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
+import axios from "axios";
+import { API_BASE_URL } from "./config";
+
+// Configure default API Base URL globally
+axios.defaults.baseURL = API_BASE_URL;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

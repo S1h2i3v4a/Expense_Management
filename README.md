@@ -1,75 +1,38 @@
+# 💰 Expense Management System
 
+Full-stack MERN Expense Tracker application split into **Frontend** (React.js) and **Backend** (Node.js & Express) for seamless deployment on **Vercel** and **Render**.
 
-Expense Management System
+```
+Expense_Management/
+├── backend/            # Express.js API + MongoDB (Deploy on Render)
+├── frontend/           # React.js application (Deploy on Vercel)
+├── .gitignore
+└── README.md
+```
 
-Overview
+---
 
-Expense Management System is a full-stack web application that helps users track and manage their daily expenses. Users can add, update, delete, and view expenses through an intuitive interface.
+## 🚀 Deployment Instructions
 
-Features
+### 1. Backend (Render)
+- **Service Type:** Web Service
+- **Root Directory:** `backend`
+- **Build Command:** `npm install`
+- **Start Command:** `node server.js`
+- **Environment Variables:**
+  - `MONGO_URL` or `MONGODB_URI` = Your MongoDB connection string
+  - `PORT` = `5000` (or leave default, Render sets dynamically)
 
-User authentication and authorization
+### 2. Frontend (Vercel)
+- **Framework Preset:** `Create React App`
+- **Root Directory:** `frontend`
+- **Build Command:** `npm run build`
+- **Output Directory:** `build`
+- **Environment Variables (Optional):**
+  - `REACT_APP_API_URL` = Your Render backend URL (e.g. `https://your-backend.onrender.com`)
 
-Add new expenses
+---
 
-Edit and delete expenses
-
-View expense history
-
-Categorize expenses
-
-Dashboard for expense tracking
-
-
-Tech Stack
-
-Frontend
-
-React.js
-
-HTML
-
-CSS
-
-JavaScript
-
-
-Backend
-
-Node.js
-
-Express.js
-
-
-Database
-
-MongoDB
-
-
-Installation
-
-1. Clone the repository
-
-
-2. Install dependencies using npm install
-
-
-3. Configure MongoDB connection
-
-
-4. Start backend and frontend servers
-
-
-
-Future Improvements
-
-Expense analytics and charts
-
-Budget planning
-
-Export reports
-
-
-Author
-
-Shivam Keshari :::
+## 🛠️ Tech Stack
+- **Frontend:** React 18, Ant Design (AntD), React Router DOM v6, Axios, Chart.js
+- **Backend:** Node.js, Express.js, MongoDB (Mongoose), Morgan, Cors, Colors
