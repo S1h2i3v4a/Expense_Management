@@ -34,7 +34,11 @@ class NumberedCanvas(canvas.Canvas):
             self.setFillColor(colors.HexColor('#1f2937'))
             self.drawCentredString(A4[0] / 2.0, 36, str(report_page_num))
 
-def build_project_report(filename="c:/Users/Shivam Keshari/OneDrive/Desktop/Expense_Management/docs/Expense_Management_Project_Report.pdf"):
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+def build_project_report(filename=None):
+    if filename is None:
+        filename = os.path.join(SCRIPT_DIR, "Expense_Management_Project_Report.pdf")
     PAGE_W, PAGE_H = A4
     MARGIN = 50
 

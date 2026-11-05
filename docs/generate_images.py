@@ -1,3 +1,6 @@
+import os
+IMG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'images')
+os.makedirs(IMG_DIR, exist_ok=True)
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import numpy as np
@@ -119,7 +122,7 @@ ax.annotate("", xy=(11.75, 1.15), xytext=(11.4, 1.15), arrowprops=dict(arrowstyl
 ax.text(11.9, 1.15, "Data Flow", fontsize=8, color='#475569', va='center')
 
 plt.tight_layout()
-plt.savefig('docs/images/dfd_diagram.png', dpi=200, bbox_inches='tight')
+plt.savefig(os.path.join(IMG_DIR, 'dfd_diagram.png'), dpi=200, bbox_inches='tight')
 plt.close()
 print("Created docs/images/dfd_diagram.png")
 
@@ -145,7 +148,7 @@ ax.set_ylim(0, 52000)
 ax.spines['top'].set_visible(False)
 ax.spines['right'].set_visible(False)
 plt.tight_layout()
-plt.savefig('docs/images/chart_highlight.png', dpi=200, bbox_inches='tight')
+plt.savefig(os.path.join(IMG_DIR, 'chart_highlight.png'), dpi=200, bbox_inches='tight')
 plt.close()
 print("Created docs/images/chart_highlight.png")
 
@@ -206,7 +209,7 @@ ax.text(4.0, 0.15, "Fig. 4.1: Flowchart of the Expense Management System",
         fontsize=10.5, fontweight='bold', color='#0f172a', ha='center')
 
 plt.tight_layout()
-plt.savefig('docs/images/flowchart.png', dpi=200, bbox_inches='tight')
+plt.savefig(os.path.join(IMG_DIR, 'flowchart.png'), dpi=200, bbox_inches='tight')
 plt.close()
 print("Created docs/images/flowchart.png")
 
@@ -222,7 +225,7 @@ ax.axis('off')
 # Header bar
 ax.add_patch(patches.Rectangle((0.2, 5.2), 9.6, 0.7, facecolor='#1e293b'))
 ax.text(0.5, 5.55, "Expense Management — Transactions Ledger", color='white', fontsize=11, fontweight='bold', va='center')
-ax.text(8.8, 5.55, "User: Shivam", color='#94a3b8', fontsize=9, va='center')
+ax.text(8.8, 5.55, "User: DemoUser", color='#94a3b8', fontsize=9, va='center')
 
 # Controls row
 ax.add_patch(patches.Rectangle((0.2, 4.5), 9.6, 0.55, facecolor='#f1f5f9'))
@@ -265,7 +268,7 @@ for idx, r in enumerate(rows):
     ax.text(8.8, y + 0.27, r[5], fontsize=8, color='#2563eb', va='center')
 
 plt.tight_layout()
-plt.savefig('docs/images/ui_fig1.png', dpi=200, bbox_inches='tight')
+plt.savefig(os.path.join(IMG_DIR, 'ui_fig1.png'), dpi=200, bbox_inches='tight')
 plt.close()
 print("Created docs/images/ui_fig1.png")
 
@@ -313,6 +316,6 @@ for name, pct, clr, cy in cats:
     ax.text(7.4, cy - 0.12, "Monthly Budget", fontsize=7, color='#64748b')
 
 plt.tight_layout()
-plt.savefig('docs/images/ui_fig2.png', dpi=200, bbox_inches='tight')
+plt.savefig(os.path.join(IMG_DIR, 'ui_fig2.png'), dpi=200, bbox_inches='tight')
 plt.close()
 print("Created docs/images/ui_fig2.png")

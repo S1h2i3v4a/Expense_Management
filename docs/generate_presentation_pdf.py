@@ -13,7 +13,11 @@ os.makedirs('docs', exist_ok=True)
 # =========================================================================
 # PART 1: BUILD PRESENTATION PDF (960 x 540 pt, 10 slides)
 # =========================================================================
-def build_presentation(filename="docs/Expense_Management_Presentation.pdf"):
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+def build_presentation(filename=None):
+    if filename is None:
+        filename = os.path.join(SCRIPT_DIR, "Expense_Management_Presentation.pdf")
     PAGE_W, PAGE_H = 960, 540
     c = canvas.Canvas(filename, pagesize=(PAGE_W, PAGE_H))
     
@@ -33,7 +37,7 @@ def build_presentation(filename="docs/Expense_Management_Presentation.pdf"):
         c.setFont("Helvetica", 9)
         c.setFillColor(colors.HexColor('#64748b'))
         c.drawString(50, 24, "Expense Management: Full-Stack MERN Personal Finance & Analytics System")
-        c.drawRightString(910, 24, "Shivam Keshari | Roll No. 2302840100210")
+        c.drawRightString(910, 24, "Full-Stack MERN Architecture")
 
     # -------------------------------------------------------------
     # SLIDE 1: Table of Content
@@ -383,13 +387,13 @@ def build_presentation(filename="docs/Expense_Management_Presentation.pdf"):
     
     c.setFont("Helvetica", 12)
     c.setFillColor(colors.HexColor('#64748b'))
-    c.drawCentredString(PAGE_W / 2, 190, "Shivam Keshari | Roll No. 2302840100210 | B.Tech CSE")
+    c.drawCentredString(PAGE_W / 2, 190, "Full-Stack Web Development | Production Release")
     c.drawCentredString(PAGE_W / 2, 170, "GitHub: https://github.com/S1h2i3v4a/Expense_Management")
     
     # Footer
     c.setFont("Helvetica", 9)
     c.drawString(50, 24, "Expense Management: Full-Stack MERN Personal Finance & Analytics System")
-    c.drawRightString(910, 24, "Shivam Keshari | Roll No. 2302840100210")
+    c.drawRightString(910, 24, "Full-Stack MERN Architecture")
     
     c.showPage()
     c.save()

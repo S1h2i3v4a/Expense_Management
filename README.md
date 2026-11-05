@@ -159,10 +159,10 @@ The application will launch at `http://localhost:3000`.
 
 ---
 
-## 👤 Author
+## 👤 Project Information
 
-- **Shivam Keshari**
-- **Roll No:** 2302840100210
-- **Degree:** B.Tech Computer Science & Engineering
-- **GitHub:** [@S1h2i3v4a](https://github.com/S1h2i3v4a)
+- **Project:** Expense Management System
+- **Stack:** MongoDB, Express.js, React.js, Node.js (MERN)
+- **Architecture:** Decoupled Client-Server with RESTful API
+- **Deployment:** Vercel (Frontend) + Render (Backend)
 - **Repository:** [Expense_Management](https://github.com/S1h2i3v4a/Expense_Management)
