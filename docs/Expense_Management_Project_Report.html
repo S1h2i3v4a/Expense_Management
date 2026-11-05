@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expense Management System — Project Report</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 20mm 15mm 20mm 15mm;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Times New Roman', Times, serif;
+    color: #111;
+    background: #f1f5f9;
+    padding: 30px;
+    font-size: 11pt;
+    line-height: 1.6;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm 18mm;
+    margin: 0 auto 30px auto;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: relative;
+    page-break-after: always;
+  }
+  .page:last-child {
+    page-break-after: avoid;
+    margin-bottom: 0;
+  }
+  .page-number {
+    position: absolute;
+    bottom: 12mm;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 10.5pt;
+    color: #111;
+  }
+  .chapter-title {
+    font-size: 14pt;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2pt;
+  }
+  .subchapter-title {
+    font-size: 14pt;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 16pt;
+  }
+  .section-title {
+    font-size: 11.5pt;
+    font-weight: bold;
+    margin-top: 12pt;
+    margin-bottom: 5pt;
+  }
+  .center-heading {
+    font-size: 12pt;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 14pt;
+    margin-bottom: 8pt;
+  }
+  p {
+    margin-bottom: 8pt;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  ul {
+    list-style: none;
+    margin-bottom: 8pt;
+    padding-left: 14pt;
+  }
+  li {
+    margin-bottom: 5pt;
+    position: relative;
+    padding-left: 12pt;
+    text-align: justify;
+  }
+  li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+  .index-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25pt;
+  }
+  .index-table th, .index-table td {
+    border: 1px solid #000;
+    padding: 8pt 10pt;
+    font-size: 10.5pt;
+  }
+  .index-table th {
+    font-weight: bold;
+    text-align: left;
+  }
+  .index-table td.center, .index-table th.center {
+    text-align: center;
+  }
+  pre {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 8pt;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 8pt;
+    line-height: 1.25;
+    overflow-x: auto;
+    margin-bottom: 8pt;
+  }
+  .img-container {
+    text-align: center;
+    margin: 10pt 0 4pt 0;
+  }
+  .img-container img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+  }
+  .caption {
+    text-align: center;
+    font-weight: bold;
+    font-size: 10pt;
+    margin-top: 4pt;
+    margin-bottom: 12pt;
+  }
+
+  @media print {
+    body {
+      background: none;
+      padding: 0;
+    }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      width: 100%;
+      min-height: 100vh;
+      page-break-after: always;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: INDEX -->
+<div class="page">
+  <div style="height: 30pt;"></div>
+  <div style="font-size: 18pt; font-weight: bold; text-align: center; margin-bottom: 30pt;">Index</div>
+  
+  <table class="index-table">
+    <thead>
+      <tr>
+        <th class="center" style="width: 12%;">S.<br>No</th>
+        <th style="width: 68%;">Topic</th>
+        <th class="center" style="width: 20%;">Page No.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="center">1</td><td>Introduction</td><td class="center">1</td></tr>
+      <tr><td class="center">2</td><td>Requirement</td><td class="center">2</td></tr>
+      <tr><td class="center">3</td><td>Conceptual Background</td><td class="center">3 to 5</td></tr>
+      <tr><td class="center">4</td><td>Implementation</td><td class="center">6</td></tr>
+      <tr><td class="center">4.1</td><td>Coding</td><td class="center">6 to 9</td></tr>
+      <tr><td class="center">4.2</td><td>Flow Chart</td><td class="center">10</td></tr>
+      <tr><td class="center">5</td><td>User Interface</td><td class="center">11</td></tr>
+      <tr><td class="center">6</td><td>Conclusion</td><td class="center">12</td></tr>
+      <tr><td class="center"></td><td>References</td><td class="center">13</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PAGE 2: CHAPTER 1 (Numbered 1) -->
+<div class="page">
+  <div class="chapter-title">Chapter-1</div>
+  <div class="subchapter-title">Introduction</div>
+
+  <p>Financial stability and systematic expenditure tracking play an essential role in the development and financial health of individuals and households. Personal budgeting is an indispensable practice for monitoring cash flows, identifying discretionary spending habits, and safeguarding savings goals. However, monitoring and logging every monetary transaction manually can be challenging when users must consider several spending categories simultaneously.</p>
+
+  <p>Traditional approaches to expense management mainly depend on examination of physical bills, manual cash ledgers, or periodic review of bank account statements. Although these manual approaches are familiar, they suffer from significant recording delays, human calculation errors, and an inability to provide early warnings against budget exhaustion. As a result, individuals frequently experience unforeseen end-of-month financial distress.</p>
+
+  <p>The Full-Stack Expense Management System, built upon the modern MERN technology stack (MongoDB, Express.js, React.js, and Node.js), is a comprehensive web project designed to support daily income and expenditure tracking. It accepts relevant transactional details, processes the inputs, and stores them in a scalable cloud document database.</p>
+
+  <p>The system aims to present the ledger in an intuitive format and provide automated categorical summaries alongside visual analytics (Bar, Line, and Pie charts). This helps users understand potential overspending concerns and consider suitable budgeting adjustments.</p>
+
+  <p>The project uses JavaScript and an interactive React web application interface to demonstrate the practical application of full-stack engineering, cloud database management, and data visualization in the personal finance domain.</p>
+
+  <div class="center-heading">Problem Statement</div>
+
+  <p>Personal cash flow is influenced by numerous factors, including monthly income, utility bills, rent, grocery outlays, travel expenses, and entertainment spending. Tracking and analyzing these factors manually requires considerable ongoing effort.</p>
+
+  <p>A major challenge is maintaining an up-to-date and organized transaction record. Without an organized analysis system, personal expenditures often escalate unnoticed, eroding liquidity before deficit trends are identified.</p>
+
+  <p>Therefore, there is a need for a system that can process transaction data securely, generate summaries, and present financial trends in a simple and understandable manner.</p>
+
+  <p>The proposed Expense Management System addresses this problem by combining modern web technologies, automated aggregation, and interactive chart visualizations into an accessible web dashboard.</p>
+
+  <div class="page-number">1</div>
+</div>
+
+<!-- PAGE 3: CHAPTER 2 (Numbered 2) -->
+<div class="page">
+  <div class="chapter-title">Chapter-2</div>
+  <div class="subchapter-title">Requirement</div>
+
+  <div class="section-title">2.1 Hardware Requirements</div>
+  <p>The following hardware configuration is suitable for developing, running, and testing the application:</p>
+  <ul>
+    <li>Computer or laptop.</li>
+    <li>Processor: modern Intel or AMD processor.</li>
+    <li>RAM: minimum 4 GB; 8 GB or more is recommended.</li>
+    <li>Storage: sufficient free disk space for Node.js, project files, libraries, and dependencies.</li>
+    <li>Keyboard and mouse or touchpad.</li>
+    <li>Internet connection for installing packages via npm and accessing cloud platforms (Atlas, Vercel, Render).</li>
+  </ul>
+  <p>The exact hardware requirements depend on the size of the transactional database and the local development workload.</p>
+
+  <div style="height: 10pt;"></div>
+  <div class="section-title">2.2 Software Requirements</div>
+  <p>The project uses a JavaScript-based full-stack development environment. The relevant software components include:</p>
+  <ul>
+    <li><b>Node.js:</b> Node.js provides the asynchronous JavaScript runtime used to implement the backend API and server logic.</li>
+    <li><b>Express.js:</b> Express.js serves as the web application framework for handling HTTP routing, middleware, and controllers.</li>
+    <li><b>React.js:</b> React is used to develop the interactive Single Page Application (SPA) user interface.</li>
+    <li><b>MongoDB Atlas:</b> Cloud-hosted NoSQL document database for secure storage of user accounts and financial records.</li>
+    <li><b>Mongoose:</b> Mongoose provides schema validation, data modeling, and query execution for MongoDB.</li>
+    <li><b>Ant Design (AntD):</b> Enterprise React UI component framework for modals, tables, notification alerts, and forms.</li>
+    <li><b>Chart.js:</b> JavaScript data visualization library for rendering interactive Bar, Line, and Pie charts.</li>
+    <li><b>Visual Studio Code:</b> Integrated development environment used for writing, editing, and debugging source code.</li>
+    <li><b>Web Browser:</b> A modern web browser used to access the application interface when running locally or on Vercel.</li>
+  </ul>
+
+  <div class="page-number">2</div>
+</div>
+
+<!-- PAGE 4: CHAPTER 3 (Numbered 3) -->
+<div class="page">
+  <div class="chapter-title">Chapter-3</div>
+  <div class="subchapter-title">Conceptual Background</div>
+
+  <div class="section-title">3.1 Web Application Architecture</div>
+  <p>Modern web software typically adheres to a decoupled client-server architectural paradigm. In this architecture, the client (the frontend user interface) and the server (the application backend) are completely separated, communicating asynchronously over the network using standard HTTP/HTTPS protocols and lightweight JSON data interchange formats.</p>
+
+  <p>This decoupling allows the frontend and backend to evolve, scale, and deploy independently. The frontend runs in the client's web browser, executing presentation logic, client-side routing, and state manipulation. The backend executes in a secured cloud environment, handling authentication, business logic, and database persistence.</p>
+
+  <div class="section-title">3.2 MERN Stack Ecosystem</div>
+  <p>The MERN stack is an acronym representing four foundational technologies: MongoDB, Express.js, React.js, and Node.js. Its primary architectural advantage is that it enables full-stack JavaScript development, eliminating context switching between different programming languages across application tiers.</p>
+
+  <p>MongoDB stores records as flexible BSON documents. Express and Node form a lightweight, non-blocking asynchronous event-driven server runtime. React provides a component-driven UI paradigm powered by Virtual DOM diffing. Together, these technologies offer optimal throughput, maintainability, and rapid development cycles.</p>
+
+  <div class="section-title">3.3 Financial Transaction Management</div>
+  <p>A financial ledger requires high fidelity, accuracy, and immutability. Each transactional record must contain essential attributes to remain analytically meaningful. In personal finance accounting, each transaction encompasses the following core dimensions:</p>
+  <ul>
+    <li>1. <b>Amount:</b> The precise monetary value involved in the transaction.</li>
+    <li>2. <b>Category:</b> The classification of the financial flow (e.g., Salary, Food, Rent, Travel, Entertainment).</li>
+    <li>3. <b>Date:</b> The temporal point at which the transaction occurred.</li>
+    <li>4. <b>Reference:</b> An optional identifier such as an invoice number or payment confirmation code.</li>
+    <li>5. <b>Description:</b> Explanatory context clarifying the purpose of the expenditure.</li>
+  </ul>
+
+  <div class="page-number">3</div>
+</div>
+
+<!-- PAGE 5: CHAPTER 3 CONT (Numbered 4) -->
+<div class="page">
+  <div class="section-title">3.4 Data Flow and State Synchronization</div>
+  <p>In a modern Single Page Application, user actions trigger state mutations that must be reflected immediately in both local client memory and remote cloud persistence layers. When a user creates or modifies an expense record, the following lifecycle occurs:</p>
+  <ul>
+    <li>1. User enters transaction values into an Ant Design Form modal.</li>
+    <li>2. Frontend validation verifies that required fields are present and correctly formatted.</li>
+    <li>3. Axios serializes the data into a JSON payload and transmits an HTTP POST or PUT request.</li>
+    <li>4. Express routes receive the request, invoke Mongoose schema validation, and save the document to MongoDB.</li>
+    <li>5. The backend returns a standard JSON response confirming the operation.</li>
+    <li>6. React updates its local component state, triggering a re-render of the table and re-aggregating Chart.js analytics.</li>
+  </ul>
+  <p>This bidirectional synchronization ensures that the user interface always presents an authoritative, up-to-date representation of financial status without requiring a full browser page refresh.</p>
+
+  <div class="section-title">3.5 Database Modeling and Data Preprocessing</div>
+  <p>Unlike traditional relational databases that require rigid tabular schemas and SQL join operations, document-oriented NoSQL databases like MongoDB store semi-structured JSON-like documents. However, unrestricted document flexibility can introduce data inconsistency in production applications.</p>
+
+  <p>Mongoose Object Data Modeling (ODM) resolves this by enforcing strict application-level schema definitions. Mongoose verifies data types, enforces required attributes, validates unique email constraints, and automatically manages audit timestamps (createdAt, updatedAt).</p>
+
+  <p>Common preprocessing operations implemented in the application include:</p>
+  <ul>
+    <li><b>Type Coercion:</b> Converting incoming numerical strings into strict floating-point numbers.</li>
+    <li><b>Date Normalization:</b> Parsing heterogeneous date inputs into UTC ISO-8601 timestamps using Moment.js.</li>
+    <li><b>Duplicate Email Prevention:</b> Checking index uniqueness to prevent duplicate account registration.</li>
+    <li><b>Categorical Aggregation:</b> Grouping transactions by category keys for real-time sum and percentage calculations.</li>
+    <li><b>Sorting and Ordering:</b> Dynamically sorting transaction records chronologically or by monetary value.</li>
+  </ul>
+
+  <div class="page-number">4</div>
+</div>
+
+<!-- PAGE 6: CHAPTER 3 CONT (Numbered 5) -->
+<div class="page">
+  <div class="section-title">3.6 API Architecture and HTTP Middleware</div>
+  <p>The backend relies on the Representational State Transfer (REST) architectural style. REST defines stateless, cacheable communication using standard HTTP request methods: GET for data retrieval, POST for record creation, PUT for updates, and DELETE for record removal.</p>
+
+  <p>Express middleware functions intercept HTTP requests before they reach the controller handlers. In the Expense Management application, the middleware pipeline includes CORS (Cross-Origin Resource Sharing) configuration allowing communication with the Vercel-hosted frontend, express.json() for request body parsing, Morgan for development request logging, and custom health check handlers.</p>
+
+  <div class="section-title">3.7 React Single Page Application (SPA)</div>
+  <p>React is a declarative, component-based frontend library developed by Meta. Instead of rewriting traditional multi-page HTML documents, React loads a single HTML shell (index.html) and dynamically rewrites the DOM (Document Object Model) as the user interacts with the application.</p>
+
+  <p>React Router v6 provides client-side routing, intercepting URL changes and rendering designated components without requesting new pages from the server. Protected route wrappers verify user authentication tokens stored in browser localStorage, automatically redirecting unauthenticated visitors to the login view.</p>
+
+  <div class="section-title">3.8 Chart.js Analytics Engine</div>
+  <p>Raw tabular ledgers can be difficult to interpret when evaluating financial trends across months. Chart.js is an open-source, HTML5 Canvas-based visualization library that transforms tabular records into interactive charts.</p>
+
+  <p>In the Expense Management analytics module, Chart.js renders Bar charts to contrast spending across categories, Line charts to illustrate expenditure velocity over daily or monthly intervals, and Pie charts alongside circular progress meters to represent proportional category distributions.</p>
+
+  <div class="page-number">5</div>
+</div>
+
+<!-- PAGE 7: CHAPTER 4 CODING (Numbered 6) -->
+<div class="page">
+  <div class="chapter-title">Chapter -4</div>
+  <div class="subchapter-title">Implementation</div>
+
+  <div class="section-title">4.1 Coding</div>
+  <p><b># 1. Express Server Setup & Health Endpoint (backend/server.js)</b></p>
+  <pre>const express = require("express");
+const cors = require("cors");
+const morgan = require("morgan");
+const dotenv = require("dotenv");
+const colors = require("colors");
+const mongoose = require("mongoose");
+const connectDb = require("./config/connectDb");
+
+dotenv.config();
+connectDb();
+
+const app = express();
+app.use(morgan("dev"));
+app.use(express.json());
+app.use(cors({ origin: "*", credentials: true }));
+
+// Health check & Keep-alive endpoint
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "Expense Management API is running!",
+    status: "healthy",
+    endpoints: {
+      health: "/health",
+      users: "/api/v1/users",
+      transections: "/api/v1/transections",
+    },
+  });
+});
+
+app.get("/health", async (req, res) => {
+  try {
+    let dbStatus = "disconnected";
+    if (mongoose.connection.readyState === 1 && mongoose.connection.db) {
+      await mongoose.connection.db.admin().ping();
+      dbStatus = "connected";
+    }
+    res.json({
+      status: "ok",
+      database: dbStatus,
+      uptimeSeconds: Math.floor(process.uptime()),
+      timestamp: new Date().toISOString(),
+    });
+  } catch (err) {
+    res.json({ status: "ok", database: "connecting", error: err.message });
+  }
+});
+
+// routes
+app.use("/api/v1/users", require("./routes/userRoute"));
+app.use("/users", require("./routes/userRoute"));
+app.use("/api/v1/transections", require("./routes/transectionRoutes"));
+app.use("/transections", require("./routes/transectionRoutes"));
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`.bgGreen.white);
+});</pre>
+
+  <div class="page-number">6</div>
+</div>
+
+<!-- PAGE 8: CHAPTER 4 CONT (Numbered 7) -->
+<div class="page">
+  <p><b># 2. Database Connection & User Management (backend/controllers/userController.js)</b></p>
+  <pre>const mongoose = require("mongoose");
+const colors = require("colors");
+
+// backend/config/connectDb.js
+mongoose.set("strictQuery", false);
+
+const connectDb = async () => {
+  try {
+    const mongoURI = process.env.MONGO_URL || process.env.MONGODB_URI;
+    if (!mongoURI) {
+      console.log("Warning: MONGO_URL not set in environment!".yellow);
+      return;
+    }
+    await mongoose.connect(mongoURI, { serverSelectionTimeoutMS: 5000 });
+    console.log(`MongoDB Connected: ${mongoose.connection.host}`.bgCyan.white);
+  } catch (error) {
+    console.log(`MongoDB connection error: ${error.message}`.bgRed);
+  }
+};
+
+// backend/controllers/userController.js
+const userModel = require("../models/userModel");
+
+const registerController = async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+    if (!name || !email || !password) {
+      return res.status(400).json({
+        success: false,
+        message: "Name, email, and password are all required",
+      });
+    }
+
+    const existingUser = await userModel.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({
+        success: false,
+        message: "Email already registered! Please login instead.",
+      });
+    }
+
+    const newUser = new userModel(req.body);
+    await newUser.save();
+    res.status(201).json({
+      success: true,
+      message: "Registration successful!",
+      newUser,
+    });
+  } catch (error) {
+    if (error.code === 11000) {
+      return res.status(400).json({
+        success: false,
+        message: "Email already exists. Please login or use another email.",
+      });
+    }
+    res.status(400).json({ success: false, message: error.message });
+  }
+};</pre>
+
+  <div class="page-number">7</div>
+</div>
+
+<!-- PAGE 9: CHAPTER 4 CONT (Numbered 8) -->
+<div class="page">
+  <p><b># 3. Transaction Controllers & Schemas (backend/controllers/transectionCtrl.js)</b></p>
+  <pre>const TransectionModel = require("../models/transectionModel");
+
+const addTransection = async (req, res) => {
+  try {
+    const newTransection = new TransectionModel(req.body);
+    await newTransection.save();
+    res.status(201).json({
+      success: true,
+      message: "Transection added successfully",
+      data: newTransection,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to add transection",
+      error: error.message,
+    });
+  }
+};
+
+const getAllTransections = async (req, res) => {
+  try {
+    const transections = await TransectionModel.find();
+    res.status(200).json({
+      success: true,
+      message: "All transections fetched successfully",
+      data: transections,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch transections",
+      error: error.message,
+    });
+  }
+};
+
+const updateTransection = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const transection = await TransectionModel.findByIdAndUpdate(
+      id, req.body, { new: true }
+    );
+    if (!transection) {
+      return res.status(404).json({ success: false, message: "Not found" });
+    }
+    res.status(200).json({ success: true, data: transection });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+};
+
+const deleteTransection = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await TransectionModel.findByIdAndDelete(id);
+    res.status(200).json({ success: true, message: "Deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+};</pre>
+
+  <div class="page-number">8</div>
+</div>
+
+<!-- PAGE 10: CHAPTER 4 CONT (Numbered 9) -->
+<div class="page">
+  <p><b># 4. Frontend API Configuration & Chart Engine (frontend/src/pages/Analytics.js)</b></p>
+  <pre>// frontend/src/config.js
+export const API_BASE_URL =
+  process.env.REACT_APP_API_URL ||
+  (typeof window !== "undefined" &&
+  (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
+    ? "http://localhost:5000"
+    : "https://expense-management-v9yf.onrender.com");
+
+// frontend/src/pages/Analytics.js
+const processData = (transactions, selectedCategory, timeRange) => {
+  let filteredData = Array.isArray(transactions) ? [...transactions] : [];
+
+  if (selectedCategory !== "all") {
+    filteredData = filteredData.filter((t) => t.category === selectedCategory);
+  }
+
+  const categoryTotals = filteredData.reduce((acc, t) => {
+    acc[t.category] = (acc[t.category] || 0) + t.amount;
+    return acc;
+  }, {});
+
+  const timeSeriesData = filteredData.reduce((acc, t) => {
+    const date = moment(t.date).format(
+      timeRange === "monthly" ? "YYYY-MM" : "YYYY-MM-DD"
+    );
+    acc[date] = (acc[date] || 0) + t.amount;
+    return acc;
+  }, {});
+
+  return {
+    categoryTotals,
+    timeSeriesData,
+    totalAmount: filteredData.reduce((sum, t) => sum + (t.amount || 0), 0),
+  };
+};
+
+const getChartData = (categoryTotals, timeSeriesData, chartType) => {
+  const colors = ["#FF6B6B", "#4ECDC4", "#45B7D1", "#96CEB4", "#FFEEAD"];
+  return {
+    labels: Object.keys(chartType === "line" ? timeSeriesData : categoryTotals),
+    datasets: [{
+      label: chartType === "line" ? "Amount Over Time" : "Amount by Category",
+      data: Object.values(chartType === "line" ? timeSeriesData : categoryTotals),
+      backgroundColor: colors,
+      borderColor: colors,
+      borderWidth: 1,
+    }],
+  };
+};</pre>
+
+  <div class="page-number">9</div>
+</div>
+
+<!-- PAGE 11: FLOWCHART (Numbered 10) -->
+<div class="page">
+  <div class="section-title">4.2 Flow Chart</div>
+  <div class="img-container">
+    <img src="images/flowchart.png" alt="Flowchart" style="max-height: 240mm;">
+  </div>
+  <div class="page-number">10</div>
+</div>
+
+<!-- PAGE 12: CHAPTER 5 (Numbered 11) -->
+<div class="page">
+  <div class="chapter-title">Chapter-5</div>
+  <div class="subchapter-title">User Interfaces</div>
+
+  <p>The Expense Management dashboard displays transaction ledger statistics, category filter controls, multi-attribute sorting tools, and an interactive financial analytics suite.</p>
+
+  <div class="img-container">
+    <img src="images/ui_fig1.png" alt="Dashboard Table" style="max-height: 85mm;">
+  </div>
+  <div class="caption">(Fig 5.1)</div>
+
+  <p>The analytical interface accepts financial parameters, summarizes spending velocity by time interval, and renders categorical distribution gauges alongside interactive Bar, Line, and Pie charts.</p>
+
+  <div class="img-container">
+    <img src="images/ui_fig2.png" alt="Analytics Dashboard" style="max-height: 85mm;">
+  </div>
+  <div class="caption">(Fig 5.2)</div>
+
+  <div class="page-number">11</div>
+</div>
+
+<!-- PAGE 13: CHAPTER 6 (Numbered 12) -->
+<div class="page">
+  <div class="chapter-title">Chapter-6</div>
+  <div class="subchapter-title">Conclusion</div>
+
+  <p>The Full-Stack Expense Management System demonstrates the practical application of JavaScript, asynchronous RESTful APIs, document databases, and reactive frontend component engineering in the personal finance domain.</p>
+
+  <p>The project provides a unified, coherent workflow through which financial transaction records can be created, inspected, modified, and deleted. The resulting records are persisted in a cloud MongoDB database and dynamically visualized through interactive chart interfaces, accompanied by category-wise percentage gauges and multi-attribute filters.</p>
+
+  <p>The project illustrates how the MERN stack contributes to personal financial wellness by helping individuals review their spending velocity in an organized, data-driven manner. It also provides comprehensive practical experience in developing production web applications, configuring cloud hosting providers (Vercel and Render), and maintaining 24/7 service availability through automated keep-alive mechanisms.</p>
+
+  <p>However, the system's long-term utility depends on regular user engagement, consistent transaction categorization, and future feature enhancements such as automated bank synchronization and machine-learning-based budget recommendations.</p>
+
+  <p>Overall, the application acts as an accessible, reliable personal finance companion, fostering disciplined money management habits and providing a solid foundation for enterprise wealth management software.</p>
+
+  <div class="page-number">12</div>
+</div>
+
+<!-- PAGE 14: REFERENCES (Numbered 13) -->
+<div class="page">
+  <div style="height: 15pt;"></div>
+  <div style="font-size: 16pt; font-weight: bold; text-align: center; margin-bottom: 25pt;">References</div>
+
+  <p>[1] React Documentation Team, "React 18 Documentation: The Library for Web and Native User Interfaces." Available: https://react.dev/</p>
+  <p>[2] Express.js Development Group, "Express - Fast, Unopinionated, Minimalist Web Framework for Node.js." Available: https://expressjs.com/</p>
+  <p>[3] MongoDB Inc., "MongoDB Atlas Cloud Database Manual and BSON Document Model." Available: https://www.mongodb.com/docs/atlas/</p>
+  <p>[4] Mongoose ODM Developers, "Mongoose: Elegant MongoDB Object Modeling for Node.js." Available: https://mongoosejs.com/docs/</p>
+  <p>[5] Ant Design Group, "Ant Design - An Enterprise-class UI Design Language and React UI Library." Available: https://ant.design/docs/react/introduce</p>
+  <p>[6] Chart.js Community, "Chart.js: Simple Yet Flexible JavaScript Charting for Designers & Developers." Available: https://www.chartjs.org/docs/latest/</p>
+  <p>[7] Vercel Inc., "Vercel Documentation: The Platform for Frontend Frameworks." Available: https://vercel.com/docs</p>
+
+  <div class="page-number">13</div>
+</div>
+
+</body>
+</html>
